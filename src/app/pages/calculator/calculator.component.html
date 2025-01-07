@@ -1,1 +1,108 @@
-<p>calculator works!</p>
+<div class="container">
+    <h1>Calculadora de Presupuesto Mensual</h1>
+  <!--
+    <form (ngSubmit)="calculateResults()">-->
+      <!-- Apartado 1: Ingresos -->
+       <!--
+      <div class="form-group">
+        <label for="salarioMensual">Salario mensual neto</label>
+        <input
+          type="number"
+          id="salarioMensual"
+          class="form-control"
+          [(ngModel)]="salarioMensual"
+          name="salarioMensual"
+          required
+        />
+        <label for="ingresosAdicionales">Ingresos adicionales</label>
+        <input
+          type="number"
+          id="ingresosAdicionales"
+          class="form-control"
+          [(ngModel)]="ingresosAdicionales"
+          name="ingresosAdicionales"
+        />
+      </div>
+  -->
+      <!-- Apartado 2: Gastos Hogar 
+       
+      <div class="form-group" *ngFor="let gasto of gastosHogarFields">
+        <label>{{ gasto }}</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="gastosHogar[gasto]"
+          [name]="gasto"
+          required
+        />
+        <span>€/mes</span>
+      </div>
+  -->
+      <!-- Apartado 3: Gastos Transporte
+      <div class="form-group" *ngFor="let gasto of gastosTransporteFields">
+        <label>{{ gasto }}</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="gastosTransporte[gasto]"
+          [name]="gasto"
+          required
+        />
+        <span>€/mes</span>
+      </div>
+   -->
+      <!-- Apartado 4: Gastos Educación 
+      <div class="form-group" *ngFor="let gasto of gastosEducacionFields">
+        <label>{{ gasto }}</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="gastosEducacion[gasto]"
+          [name]="gasto"
+          required
+        />
+        <span>€/mes</span>
+      </div>
+  -->
+      <!-- Apartado 5: Otros Gastos 
+      <div class="form-group" *ngFor="let gasto of otrosGastosFields">
+        <label>{{ gasto }}</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="otrosGastos[gasto]"
+          [name]="gasto"
+          required
+        />
+        <span>€/mes</span>
+      </div>
+  -->
+      <!-- Apartado 6: Ahorro/ Inversión
+      <div class="form-group" *ngFor="let gasto of ahorroInversionFields">
+        <label>{{ gasto }}</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="ahorroInversion[gasto]"
+          [name]="gasto"
+          required
+        />
+        <span>€/mes</span>
+      </div>
+   -->
+      <!-- Botón Calcular 
+      <button type="submit" class="btn btn-primary">Calcular Resultados</button>
+    </form>
+  -->
+    <!-- Resultados 
+    <div *ngIf="totalIngresos || totalGastos || totalAhorro">
+      <h3>Resultados:</h3>
+      <p><strong>Total Ingresos:</strong> {{ totalIngresos }} €</p>
+      <p><strong>Total Gastos:</strong> {{ totalGastos }} €</p>
+      <p><strong>Total Ahorro:</strong> {{ totalAhorro }} €</p>
+    </div>
+  -->
+    <!-- Botón Reset 
+    <button (click)="reset()" class="btn btn-secondary">Resetear</button>
+  -->
+</div>
