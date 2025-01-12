@@ -1,0 +1,99 @@
+/* Estilo para la sección de portada */
+section.bg-primary {
+    background-color: #007bff; /* Cambia el color de fondo si lo deseas */
+    color: white;
+    text-align: center;
+    padding-top: 5rem; /* Ajusta el espaciado superior */
+    padding-bottom: 5rem; /* Ajusta el espaciado inferior */
+  }
+  
+  section.bg-primary h1 {
+    font-size: 3rem; /* Tamaño de fuente ajustado */
+  }
+  
+  section.bg-primary p {
+    font-size: 1.25rem;
+  }
+  
+  /* Estilo para los bloques de características */
+  section.container.mt-5 {
+    margin-top: 5rem;
+  }
+  
+  .icon-container {
+    margin-bottom: 1.5rem; /* Espaciado entre el ícono y el título */
+  }
+  
+  .icon-container i {
+    font-size: 4rem; /* Tamaño grande para los íconos */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* Tamaño de fuente ajustado */
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1rem; /* Tamaño de fuente ajustado para el texto descriptivo */
+    color: #555; /* Color gris para el texto de la descripción */
+  }
+  
+  /* Colores personalizados para los íconos */
+  .bi-bank {
+    color: #007bff; /* Azul para el primer ícono */
+  }
+  
+  .bi-wallet {
+    color: #dc3545; /* Rojo para el segundo ícono */
+  }
+  
+  .bi-currency-dollar {
+    color: #007bff; /* Azul para el tercer ícono */
+  }
+  
+  /* Estilo para las columnas */
+  @media (max-width: 768px) {
+    .col-md-4 {
+      margin-bottom: 2rem; /* Espaciado adicional para pantallas pequeñas */
+    }
+  }
+  /* Estilos para la sección de redirección a la calculadora */
+section.container.text-center.mt-5 { 
+    padding: 40px 20px; /* Espaciado alrededor */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+section.container.text-center.mt-5 h2 {
+    font-size: 2.5rem; /* Tamaño de fuente grande para el título */
+    font-weight: bold; /* Fuente en negrita */
+    color: #343a40; /* Color oscuro para el texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+section.container.text-center.mt-5 p.lead {
+    font-size: 1.2rem; /* Tamaño de fuente más grande para la descripción */
+    color: #6c757d; /* Color gris para el texto */
+    margin-bottom: 30px; /* Espacio debajo del párrafo */
+}
+
+section.container.text-center.mt-5 .btn-success {
+    background-color: #28a745; /* Color verde para el botón */
+    border-color: #28a745; /* Asegura que el borde también sea verde */
+    font-size: 1.2rem; /* Tamaño de fuente mayor en el botón */
+    padding: 12px 25px; /* Aumenta el tamaño del botón */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Añade transiciones suaves */
+}
+
+section.container.text-center.mt-5 .btn-success:hover {
+    background-color: #218838; /* Color verde más oscuro cuando el botón es hover */
+    border-color: #1e7e34; /* Ajusta el borde del botón en hover */
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+}
+
+section.container.text-center.mt-5 .btn-success:focus {
+    outline: none; /* Elimina el borde cuando el botón tiene el foco */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.5); /* Añade un brillo suave alrededor del botón */
+}
+
+  
