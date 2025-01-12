@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule],
 })
 
 export class CalculatorComponent {
-  // Variables existentes
   salary: number = 0;
   extraIncome: number = 0;
 
@@ -47,39 +47,37 @@ export class CalculatorComponent {
     others: 0
   };
 
-  savings: number = 0;  // Ahorros
-  investments: number = 0;  // Inversiones
+  savings: number = 0;
+  investments: number = 0;
 
-  // Propiedad para el resultado
   presupuestoDisponible: number | null = null;
-  message: string = '';  // Mensaje de error o advertencia
-  totalExpenses: number = 0;  // Total de gastos
+  totalExpenses: number = 0;
 
-  // Método para calcular el presupuesto disponible considerando ingresos, gastos, ahorros e inversiones
+  // Método para calcular el presupuesto disponible
   getPresupuestoDisponible(): number {
-    // Usar salary y extraIncome para calcular los ingresos
     const totalIncome = this.salary + this.extraIncome;
-    
-    // Sumar los gastos de las distintas categorías
+
     this.totalExpenses =
       Object.values(this.homeExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.transportExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.educationExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.otherExpenses).reduce((sum, value) => sum + value, 0);
 
-    // El presupuesto disponible incluye también ahorros e inversiones
-    return totalIncome - this.totalExpenses + this.savings + this.investments;  // Presupuesto disponible
+    return totalIncome - this.totalExpenses + this.savings + this.investments;
   }
 
-  // Método para calcular el presupuesto disponible y mostrarlo en la interfaz
-  calculateResults() {
-    this.presupuestoDisponible = this.getPresupuestoDisponible();
+  showReport: boolean = false;
 
-    // Verificar si los fondos son suficientes
-    if (this.presupuestoDisponible < 0) {
-      this.message = "¡Te faltan fondos! Revisa tus gastos.";
-    } else {
-      this.message = '';
-    }
+  // Método para calcular el presupuesto disponible
+  calculateResults() {
+    const totalIncome = this.salary + this.extraIncome;
+    const totalExpenses = Object.values(this.homeExpenses).reduce((acc, curr) => acc + curr, 0);
+    
+    this.presupuestoDisponible = totalIncome - totalExpenses;
+  }
+
+  // Mostrar informe mensual
+  showMonthlyReport() {
+    this.showReport = !this.showReport;  // Toggle visibility of report
   }
 }

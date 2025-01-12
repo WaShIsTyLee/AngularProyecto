@@ -3,8 +3,8 @@
 
   <!-- Apartado 1: Salario y otros ingresos -->
   <div class="form-group">
-    <button>Ingresos</button>
-    <label for="salary">Salario mensual neto (€):</label>
+    <button class="accordion-button">Ingresos</button>
+    <label for="salary">Salario mensual neto (€) *:</label>
     <input type="number" id="salary" [(ngModel)]="salary" placeholder="Ingresa tu salario mensual neto">
   </div>
   <div class="form-group">
@@ -12,204 +12,304 @@
     <input type="number" id="extraIncome" [(ngModel)]="extraIncome" placeholder="Ingresa tus ingresos adicionales">
   </div>
 
-<!-- Apartado 2: Gastos Hogar -->
-<div class="accordion mb-4" id="homeExpenses">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHome" aria-expanded="true" aria-controls="collapseHome">
-        Gastos Hogar
-      </button>
-    </h2>
-    <div id="collapseHome" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#homeExpenses">
-      <div class="accordion-body">
-        <!-- Campo Hipoteca/Alquiler -->
-        <div class="form-group mb-3">
-          <label for="mortgage">Hipoteca/Alquiler (€):</label>
-          <input type="number" id="mortgage" [(ngModel)]="homeExpenses.mortgage" class="form-control" placeholder="Ingresa el valor de la hipoteca/alquiler">
-        </div>
-        <!-- Campo Seguro del hogar -->
-        <div class="form-group mb-3">
-          <label for="homeInsurance">Seguro del hogar (€):</label>
-          <input type="number" id="homeInsurance" [(ngModel)]="homeExpenses.homeInsurance" class="form-control" placeholder="Ingresa el valor del seguro del hogar">
-        </div>
-        <!-- Campo Mantenimiento de la casa -->
-        <div class="form-group mb-3">
-          <label for="homeMaintenance">Mantenimiento de la casa (€):</label>
-          <input type="number" id="homeMaintenance" [(ngModel)]="homeExpenses.homeMaintenance" class="form-control" placeholder="Ingresa el valor del mantenimiento">
-        </div>
-        <!-- Campo Internet -->
-        <div class="form-group mb-3">
-          <label for="internet">Internet (€):</label>
-          <input type="number" id="internet" [(ngModel)]="homeExpenses.internet" class="form-control" placeholder="Ingresa el valor de Internet">
-        </div>
-        <!-- Campo Teléfono -->
-        <div class="form-group mb-3">
-          <label for="phone">Teléfono (€):</label>
-          <input type="number" id="phone" [(ngModel)]="homeExpenses.phone" class="form-control" placeholder="Ingresa el valor del teléfono">
-        </div>
-        <!-- Campo Comida -->
-        <div class="form-group mb-3">
-          <label for="food">Comida (€):</label>
-          <input type="number" id="food" [(ngModel)]="homeExpenses.food" class="form-control" placeholder="Ingresa el valor de la comida">
+  <!-- Apartado 2: Gastos Hogar -->
+  <div class="accordion mb-4" id="homeExpenses">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHome"
+          aria-expanded="true" aria-controls="collapseHome">
+          Gastos Hogar
+        </button>
+      </h2>
+      <div id="collapseHome" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        data-bs-parent="#homeExpenses">
+        <div class="accordion-body">
+          <!-- Campo Hipoteca/Alquiler -->
+          <div class="form-group mb-3">
+            <label for="mortgage">Hipoteca/Alquiler (€):</label>
+            <input type="number" id="mortgage" [(ngModel)]="homeExpenses.mortgage" class="form-control"
+              placeholder="Ingresa el valor de la hipoteca/alquiler">
+          </div>
+          <!-- Campo Seguro del hogar -->
+          <div class="form-group mb-3">
+            <label for="homeInsurance">Seguro del hogar (€):</label>
+            <input type="number" id="homeInsurance" [(ngModel)]="homeExpenses.homeInsurance" class="form-control"
+              placeholder="Ingresa el valor del seguro del hogar">
+          </div>
+          <!-- Campo Mantenimiento de la casa -->
+          <div class="form-group mb-3">
+            <label for="homeMaintenance">Mantenimiento de la casa (€):</label>
+            <input type="number" id="homeMaintenance" [(ngModel)]="homeExpenses.homeMaintenance" class="form-control"
+              placeholder="Ingresa el valor del mantenimiento">
+          </div>
+          <!-- Campo Internet -->
+          <div class="form-group mb-3">
+            <label for="internet">Internet (€):</label>
+            <input type="number" id="internet" [(ngModel)]="homeExpenses.internet" class="form-control"
+              placeholder="Ingresa el valor de Internet">
+          </div>
+          <!-- Campo Teléfono -->
+          <div class="form-group mb-3">
+            <label for="phone">Teléfono (€):</label>
+            <input type="number" id="phone" [(ngModel)]="homeExpenses.phone" class="form-control"
+              placeholder="Ingresa el valor del teléfono">
+          </div>
+          <!-- Campo Comida -->
+          <div class="form-group mb-3">
+            <label for="food">Comida (€):</label>
+            <input type="number" id="food" [(ngModel)]="homeExpenses.food" class="form-control"
+              placeholder="Ingresa el valor de la comida">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Apartado 3: Gastos Transporte -->
-<div class="accordion mb-4" id="transportExpenses">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransport" aria-expanded="true" aria-controls="collapseTransport">
-        Gastos Transporte
-      </button>
-    </h2>
-    <div id="collapseTransport" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#transportExpenses">
-      <div class="accordion-body">
-        <!-- Campo Coche -->
-        <div class="form-group mb-3">
-          <label for="car">Coche (€):</label>
-          <input type="number" id="car" [(ngModel)]="transportExpenses.car" class="form-control" placeholder="Ingresa el valor del coche">
-        </div>
-        <!-- Campo Seguro del coche -->
-        <div class="form-group mb-3">
-          <label for="carInsurance">Seguro del coche (€):</label>
-          <input type="number" id="carInsurance" [(ngModel)]="transportExpenses.carInsurance" class="form-control" placeholder="Ingresa el valor del seguro del coche">
-        </div>
-        <!-- Campo Mantenimiento del coche -->
-        <div class="form-group mb-3">
-          <label for="carMaintenance">Mantenimiento del coche (€):</label>
-          <input type="number" id="carMaintenance" [(ngModel)]="transportExpenses.carMaintenance" class="form-control" placeholder="Ingresa el valor del mantenimiento del coche">
-        </div>
-        <!-- Campo Combustible -->
-        <div class="form-group mb-3">
-          <label for="fuel">Combustible (€):</label>
-          <input type="number" id="fuel" [(ngModel)]="transportExpenses.fuel" class="form-control" placeholder="Ingresa el valor del combustible">
-        </div>
-        <!-- Campo Transporte público -->
-        <div class="form-group mb-3">
-          <label for="publicTransport">Transporte público (€):</label>
-          <input type="number" id="publicTransport" [(ngModel)]="transportExpenses.publicTransport" class="form-control" placeholder="Ingresa el valor del transporte público">
-        </div>
-        <!-- Campo Taxi/Uber -->
-        <div class="form-group mb-3">
-          <label for="taxiUber">Taxi/Uber (€):</label>
-          <input type="number" id="taxiUber" [(ngModel)]="transportExpenses.taxiUber" class="form-control" placeholder="Ingresa el valor de Taxi/Uber">
+  <!-- Apartado 3: Gastos Transporte -->
+  <div class="accordion mb-4" id="transportExpenses">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransport"
+          aria-expanded="true" aria-controls="collapseTransport">
+          Gastos Transporte
+        </button>
+      </h2>
+      <div id="collapseTransport" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#transportExpenses">
+        <div class="accordion-body">
+          <!-- Campo Coche -->
+          <div class="form-group mb-3">
+            <label for="car">Coche (€):</label>
+            <input type="number" id="car" [(ngModel)]="transportExpenses.car" class="form-control"
+              placeholder="Ingresa el valor del coche">
+          </div>
+          <!-- Campo Seguro del coche -->
+          <div class="form-group mb-3">
+            <label for="carInsurance">Seguro del coche (€):</label>
+            <input type="number" id="carInsurance" [(ngModel)]="transportExpenses.carInsurance" class="form-control"
+              placeholder="Ingresa el valor del seguro del coche">
+          </div>
+          <!-- Campo Mantenimiento del coche -->
+          <div class="form-group mb-3">
+            <label for="carMaintenance">Mantenimiento del coche (€):</label>
+            <input type="number" id="carMaintenance" [(ngModel)]="transportExpenses.carMaintenance" class="form-control"
+              placeholder="Ingresa el valor del mantenimiento del coche">
+          </div>
+          <!-- Campo Combustible -->
+          <div class="form-group mb-3">
+            <label for="fuel">Combustible (€):</label>
+            <input type="number" id="fuel" [(ngModel)]="transportExpenses.fuel" class="form-control"
+              placeholder="Ingresa el valor del combustible">
+          </div>
+          <!-- Campo Transporte público -->
+          <div class="form-group mb-3">
+            <label for="publicTransport">Transporte público (€):</label>
+            <input type="number" id="publicTransport" [(ngModel)]="transportExpenses.publicTransport"
+              class="form-control" placeholder="Ingresa el valor del transporte público">
+          </div>
+          <!-- Campo Taxi/Uber -->
+          <div class="form-group mb-3">
+            <label for="taxiUber">Taxi/Uber (€):</label>
+            <input type="number" id="taxiUber" [(ngModel)]="transportExpenses.taxiUber" class="form-control"
+              placeholder="Ingresa el valor de Taxi/Uber">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Apartado 4: Gastos Educación -->
-<div class="accordion mb-4" id="educationExpenses">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation" aria-expanded="true" aria-controls="collapseEducation">
-        Gastos Educación
-      </button>
-    </h2>
-    <div id="collapseEducation" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#educationExpenses">
-      <div class="accordion-body">
-        <!-- Campo Colegio/Master/Formación -->
-        <div class="form-group mb-3">
-          <label for="education">Colegio/Master/Formación (€):</label>
-          <input type="number" id="education" [(ngModel)]="educationExpenses.education" class="form-control" placeholder="Ingresa el valor del colegio/master/formación">
-        </div>
-        <!-- Campo Extraescolares -->
-        <div class="form-group mb-3">
-          <label for="extracurriculars">Extraescolares (€):</label>
-          <input type="number" id="extracurriculars" [(ngModel)]="educationExpenses.extracurriculars" class="form-control" placeholder="Ingresa el valor de las actividades extraescolares">
-        </div>
-        <!-- Campo Material escolar/Formación -->
-        <div class="form-group mb-3">
-          <label for="materials">Material escolar/Formación (€):</label>
-          <input type="number" id="materials" [(ngModel)]="educationExpenses.materials" class="form-control" placeholder="Ingresa el valor del material escolar/formación">
+  <!-- Apartado 4: Gastos Educación -->
+  <div class="accordion mb-4" id="educationExpenses">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation"
+          aria-expanded="true" aria-controls="collapseEducation">
+          Gastos Educación
+        </button>
+      </h2>
+      <div id="collapseEducation" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#educationExpenses">
+        <div class="accordion-body">
+          <!-- Campo Colegio/Master/Formación -->
+          <div class="form-group mb-3">
+            <label for="education">Colegio/Master/Formación (€):</label>
+            <input type="number" id="education" [(ngModel)]="educationExpenses.education" class="form-control"
+              placeholder="Ingresa el valor del colegio/master/formación">
+          </div>
+          <!-- Campo Extraescolares -->
+          <div class="form-group mb-3">
+            <label for="extracurriculars">Extraescolares (€):</label>
+            <input type="number" id="extracurriculars" [(ngModel)]="educationExpenses.extracurriculars"
+              class="form-control" placeholder="Ingresa el valor de las actividades extraescolares">
+          </div>
+          <!-- Campo Material escolar/Formación -->
+          <div class="form-group mb-3">
+            <label for="materials">Material escolar/Formación (€):</label>
+            <input type="number" id="materials" [(ngModel)]="educationExpenses.materials" class="form-control"
+              placeholder="Ingresa el valor del material escolar/formación">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- Apartado 5: Otros Gastos -->
   <div class="accordion mb-4" id="otherExpenses">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="true" aria-controls="collapseOther">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther"
+          aria-expanded="true" aria-controls="collapseOther">
           Otros Gastos
         </button>
       </h2>
-      <div id="collapseOther" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#otherExpenses">
+      <div id="collapseOther" class="accordion-collapse collapse" aria-labelledby="headingFour"
+        data-bs-parent="#otherExpenses">
         <div class="accordion-body">
           <!-- Campo Ocio/Cenar/Amigos -->
           <div class="form-group mb-3">
             <label for="leisure">Ocio/Cenar/Amigos (€):</label>
-            <input type="number" id="leisure" [(ngModel)]="otherExpenses.leisure" class="form-control" placeholder="Ingresa el valor de ocio/cenar/amigos">
+            <input type="number" id="leisure" [(ngModel)]="otherExpenses.leisure" class="form-control"
+              placeholder="Ingresa el valor de ocio/cenar/amigos">
           </div>
           <!-- Campo Vacaciones -->
           <div class="form-group mb-3">
             <label for="vacations">Vacaciones (€):</label>
-            <input type="number" id="vacations" [(ngModel)]="otherExpenses.vacations" class="form-control" placeholder="Ingresa el valor de vacaciones">
+            <input type="number" id="vacations" [(ngModel)]="otherExpenses.vacations" class="form-control"
+              placeholder="Ingresa el valor de vacaciones">
           </div>
           <!-- Campo Médico -->
           <div class="form-group mb-3">
             <label for="medical">Médico (€):</label>
-            <input type="number" id="medical" [(ngModel)]="otherExpenses.medical" class="form-control" placeholder="Ingresa el valor del médico">
+            <input type="number" id="medical" [(ngModel)]="otherExpenses.medical" class="form-control"
+              placeholder="Ingresa el valor del médico">
           </div>
           <!-- Campo Mascotas -->
           <div class="form-group mb-3">
             <label for="pets">Mascotas (€):</label>
-            <input type="number" id="pets" [(ngModel)]="otherExpenses.pets" class="form-control" placeholder="Ingresa el valor de las mascotas">
+            <input type="number" id="pets" [(ngModel)]="otherExpenses.pets" class="form-control"
+              placeholder="Ingresa el valor de las mascotas">
           </div>
           <!-- Campo Otros -->
           <div class="form-group mb-3">
             <label for="others">Otros (€):</label>
-            <input type="number" id="others" [(ngModel)]="otherExpenses.others" class="form-control" placeholder="Ingresa otros gastos">
+            <input type="number" id="others" [(ngModel)]="otherExpenses.others" class="form-control"
+              placeholder="Ingresa otros gastos">
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!-- Apartado 6: Ahorro/Inversión -->
-<div class="accordion" id="savingsInvestments">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSix">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSavingsInvestments" aria-expanded="true" aria-controls="collapseSavingsInvestments">
-        Ahorro / Inversión
-      </button>
-    </h2>
-    <div id="collapseSavingsInvestments" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#savingsInvestments">
-      <div class="accordion-body">
-        <div class="form-group">
-          <label for="savings">Ahorro (€):</label>
-          <input type="number" id="savings" [(ngModel)]="savings" class="form-control" placeholder="Ingresa tu ahorro mensual">
+  <!-- Apartado 6: Ahorro/Inversión -->
+  <div class="accordion" id="savingsInvestments">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseSavingsInvestments" aria-expanded="true" aria-controls="collapseSavingsInvestments">
+          Ahorro / Inversión
+        </button>
+      </h2>
+      <div id="collapseSavingsInvestments" class="accordion-collapse collapse" aria-labelledby="headingSix"
+        data-bs-parent="#savingsInvestments">
+        <div class="accordion-body">
+          <div class="form-group">
+            <label for="savings">Ahorro (€):</label>
+            <input type="number" id="savings" [(ngModel)]="savings" class="form-control"
+              placeholder="Ingresa tu ahorro mensual">
+          </div>
+          <div class="form-group">
+            <label for="investments">Inversión (€):</label>
+            <input type="number" id="investments" [(ngModel)]="investments" class="form-control"
+              placeholder="Ingresa tu inversión mensual">
+          </div>
         </div>
-        <div class="form-group">
-          <label for="investments">Inversión (€):</label>
-          <input type="number" id="investments" [(ngModel)]="investments" class="form-control" placeholder="Ingresa tu inversión mensual">
-        </div>        
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- Botón para calcular -->
-<button class="btn btn-primary mt-3" (click)="calculateResults()">Calcular Presupuesto</button>
+  <!-- Botón para calcular -->
+  <button class="btn btn-primary mt-3" (click)="calculateResults()">Calcular Presupuesto</button>
 
-<!-- Mostrar resultado -->
-<div *ngIf="presupuestoDisponible !== null">
-  <h4>Total disponible: {{ presupuestoDisponible }} €</h4>
-</div>
-
-<!-- Alerta si falta dinero -->
-<div *ngIf="getPresupuestoDisponible() < 0" class="alert alert-danger">
-  <div *ngIf="message">
-    <h4>{{ message }}</h4>
-    <p>Gastos: {{ totalExpenses }}€</p>
+  <!-- Mostrar resultado -->
+  <div *ngIf="presupuestoDisponible !== null">
+    <h4 style="margin-top: 10px;">
+      Presupuesto disponible:
+      {{ presupuestoDisponible < 0 ? presupuestoDisponible + ' €' : presupuestoDisponible + ' €' }} </h4>
   </div>
-  
 
+  <!-- Alerta si falta dinero -->
+  <div *ngIf="getPresupuestoDisponible() < 0" class="alert alert-danger">
+    <h4>¡Te faltan fondos! Revisa tus gastos.</h4>
+    <h5>Tienes: {{ getPresupuestoDisponible() | currency:'EUR':'symbol':'1.0-0' }}</h5>
+  </div>
+
+
+  <!-- Botón para ver informe mensual -->
+  <div class="button-informe">
+    <button style="margin-top: 10px; text-align: center" (click)="showMonthlyReport()">Ver Informe Mensual</button>
+  </div>
+
+  <!-- Informe Mensual -->
+  <div *ngIf="showReport" class="mt-4">
+    <h3>Informe Mensual</h3>
+    <div class="report-section">
+      <h4 style="margin-top: 20px;">Gastos del Hogar</h4>
+      <ul>
+        <li>Hipoteca/Alquiler: {{ homeExpenses.mortgage }} €</li>
+        <li>Seguro del hogar: {{ homeExpenses.homeInsurance }} €</li>
+        <li>Mantenimiento de la casa: {{ homeExpenses.homeMaintenance }} €</li>
+        <li>Internet: {{ homeExpenses.internet }} €</li>
+        <li>Teléfono: {{ homeExpenses.phone }} €</li>
+        <li>Comida: {{ homeExpenses.food }} €</li>
+      </ul>
+
+      <div>
+        <h4 style="margin-top: 20px;">Gastos Trasporte</h4>
+        <ul>
+          <li>Coche: {{ transportExpenses.car }} €</li>
+          <li>Seguro del coche: {{ transportExpenses.carInsurance }} €</li>
+          <li>Mantenimiento del coche: {{ transportExpenses.carMaintenance }} €</li>
+          <li>Combustible: {{ transportExpenses.fuel }} €</li>
+          <li>Transporte público: {{ transportExpenses.publicTransport }} €</li>
+          <li>Taxi/Uber: {{ transportExpenses.taxiUber }} €</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin-top: 20px;">Gastos Educación</h4>
+        <ul>
+          <li>Colegio/Master/Formación: {{ educationExpenses.education }} €</li>
+          <li>Extraescolares: {{ educationExpenses.extracurriculars }} €</li>
+          <li>Material escolar/Formación: {{ educationExpenses.materials }} €</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin-top: 20px;">Otros Gastos</h4>
+        <ul>
+          <li>Ocio/Cenar/Amigos: {{ otherExpenses.leisure }} €</li>
+          <li>Vacaciones: {{ otherExpenses.vacations }} €</li>
+          <li>Médico: {{ otherExpenses.medical }} €</li>
+          <li>Mascotas: {{ otherExpenses.pets }} €</li>
+          <li>Otros: {{ otherExpenses.others }} €</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin-top: 20px;">Ingresos</h4>
+        <ul>
+          <li>Salario: {{ salary }} €</li>
+          <li>Ingresos adicionales: {{ extraIncome }} €</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-top: 20px;">Ahorro e Inversión</h4>
+        <ul>
+          <li>Ahorro: {{ savings }} €</li>
+          <li>Inversión: {{ investments }} €</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
