@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { BudgetSummaryComponent } from './pages/budget-summary/budget-summary.component';
 
 @NgModule({
   imports: [
@@ -12,7 +11,6 @@ import { BudgetSummaryComponent } from './pages/budget-summary/budget-summary.co
     FormsModule,
     CommonModule,
     RouterModule.forRoot(routes),
-    BudgetSummaryComponent
   ],
 })
 export class AppModule { }
