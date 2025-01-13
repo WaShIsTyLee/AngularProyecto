@@ -32,6 +32,14 @@
             >Calculadora de Presupuesto</a
           >
         </li>
+        <!-- Adding the Clima link -->
+        <li class="nav-item" routerLinkActive="active">
+          <a
+            class="nav-link"
+            [routerLink]="['/clima']"
+            routerLinkActive="active"
+            >Clima</a>
+        </li>
       </ul>
       <div class="text-end ms-auto">
         <div *ngIf="user$ | async as user; else notLoggedIn">

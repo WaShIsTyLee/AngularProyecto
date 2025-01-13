@@ -1,0 +1,12 @@
+<div *ngIf="clima">
+    <h2>Clima en {{ ciudad }}</h2>
+    <p><strong>Temperatura:</strong> {{ clima.main.temp }} °C</p>
+    <p><strong>Descripción:</strong> {{ clima.weather[0].description }}</p>
+    <p><strong>Humedad:</strong> {{ clima.main.humidity }}%</p>
+    <p><strong>Viento:</strong> {{ clima.wind.speed }} m/s</p>
+  </div>
+  
+  <div *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+  
