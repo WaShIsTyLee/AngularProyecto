@@ -10,7 +10,7 @@ import { ClimaService } from '../../services/clima.service';
   styleUrls: ['./clima.component.css']
 })
 export class ClimaComponent implements OnInit {
-  ciudad: string = 'Madrid';  // Ciudad por defecto
+  ciudad: string = 'Cordoba';  // Ciudad por defecto
   clima: any;
   error: string = '';
 
