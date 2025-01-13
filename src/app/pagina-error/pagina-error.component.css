@@ -1,0 +1,20 @@
+.error-page {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .error-page h1 {
+    font-size: 2em;
+    color: red;
+  }
+  
+  .error-page p {
+    font-size: 1.2em;
+  }
+  
+  .error-page a {
+    font-size: 1.2em;
+    text-decoration: underline;
+    color: #007BFF;
+  }
+  
