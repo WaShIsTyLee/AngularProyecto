@@ -123,6 +123,36 @@ p {
 .btn {
   background-color: #9200be;
   border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.button-save{
+  background-color: #01cb3a;
+  border-radius: 5px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  align-items: center; /* Centra el botón verticalmente */
+  margin-top: 15px;
+}
+
+.button-save:hover{
+  background-color: #109604;
+  border-radius: 5px;
+}
+
+.button-delete{
+  background-color: #cb0101;
+  border-radius: 5px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  align-items: center; /* Centra el botón verticalmente */
+  margin-top: 15px;}
+
+.button-delete:hover{
+  background-color: #760000;
+  border-radius: 5px;
 }
 
 .btn:hover {
@@ -155,6 +185,36 @@ p {
   background-color: #c300ff; /* Color de fondo más oscuro al pasar el cursor */
 }
 
+.button-historial{
+  background-color: #9200be; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Relleno interno */
+  text-align: center; /* Alineación del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambio de cursor al pasar sobre el botón */
+  margin-top: 10px;
+  transition: background-color 0.3s ease; /* Efecto suave al cambiar de color */
+}
+
+.button-historial button:hover {
+  background-color: #c300ff; /* Color de fondo más oscuro al pasar el cursor */
+}
+
+.button-presupuesto{
+  background-color: #9200be; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Relleno interno */
+  text-align: center; /* Alineación del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambio de cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Efecto suave al cambiar de color */
+}
+
+.button-presupuesto:hover{
+  background-color: #c300ff; /* Color de fondo más oscuro al pasar el cursor */
+}
 /* Estilo cuando el botón está presionado */
 .button-informe button:active {
   background-color: #660185; /* Color de fondo aún más oscuro al hacer clic */
@@ -239,16 +299,4 @@ p {
   background-color: #f4f6f7; /* Fondo gris muy claro para el contenedor */
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
-}
-
-/* Estilo de los botones para interacciones adicionales (si los necesitas) */
-button {
-  background-color: #3498db; /* Azul de fondo */
-  color: white; /* Texto blanco */
-  padding: 0.8rem 2rem;
-  border: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
 }
