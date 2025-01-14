@@ -258,13 +258,19 @@
   </button>
 
   <!-- Lista de presupuestos -->
-  <div *ngIf="listPresupuestosVisible && presupuestos.length > 0">
+<div *ngIf="listPresupuestosVisible">
+  <div *ngIf="presupuestos.length > 0">
     <ul>
       <li *ngFor="let presupuesto of presupuestos" (click)="onPresupuestoClick(presupuesto)">
         Presupuesto: {{ presupuesto.presupuestoDisponible }}
       </li>
     </ul>
   </div>
+  <div *ngIf="presupuestos.length === 0">
+    <h4>No hay presupuestos disponibles.</h4>
+  </div>
+</div>
+
 
 
   <!-- Botón para ver informe mensual -->
