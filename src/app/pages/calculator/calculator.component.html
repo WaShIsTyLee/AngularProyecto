@@ -244,6 +244,28 @@
     <h5>Tienes: {{ getPresupuestoDisponible() | currency:'EUR':'symbol':'1.0-0' }}</h5>
   </div>
 
+  <!-- Botón para guardar solo el presupuesto disponible -->
+  <button class="button-save" (click)="savePresupuesto()">Guardar Presupuesto Disponible</button>
+
+  <!-- Botón para eliminar todos los presupuestos -->
+  <div>
+    <button class="button-delete" (click)="deleteAllPresupuestos()">Eliminar todos los presupuestos</button>
+  </div>
+
+  <!-- Botón para alternar la visibilidad del historial -->
+  <button class="button-historial" (click)="toggleHistorial()" class="button-historial">
+    {{ listPresupuestosVisible ? 'Ocultar Historial' : 'Ver Historial Presupuestos' }}
+  </button>
+
+  <!-- Lista de presupuestos -->
+  <div *ngIf="listPresupuestosVisible && presupuestos.length > 0">
+    <ul>
+      <li *ngFor="let presupuesto of presupuestos" (click)="onPresupuestoClick(presupuesto)">
+        Presupuesto: {{ presupuesto.presupuestoDisponible }}
+      </li>
+    </ul>
+  </div>
+
 
   <!-- Botón para ver informe mensual -->
   <div class="button-informe">
