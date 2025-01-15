@@ -18,6 +18,7 @@ export class CalculatorComponent {
   presupuestoDisponible: number | null = null;
   listPresupuestosVisible: boolean = false;
   showReport: boolean = false;
+  loading: boolean = false;  // Variable para mostrar el spinner
 
   homeExpenses = {
     mortgage: 0,
@@ -55,43 +56,131 @@ export class CalculatorComponent {
   investments: number = 0;
   totalExpenses: number = 0;
 
-  constructor(private calculatorService: CalculatorService) { }
+  constructor(private calculatorService: CalculatorService) {}
 
   ngOnInit(): void {
     this.loadPresupuestos();
   }
 
-  // Método para calcular el presupuesto disponible
+  private isValidNumber(value: number): boolean {
+    return !isNaN(value) && value >= 0;
+  }
+
+  private validateInputs(): boolean {
+    const errors: string[] = [];
+
+    // Validar ingresos
+    if (!this.isValidNumber(this.salary)) {
+      errors.push('El salario debe ser un número positivo.');
+      this.salary = 0; // Limpiar el campo
+    }
+    if (!this.isValidNumber(this.extraIncome)) {
+      errors.push('El ingreso extra debe ser un número positivo.');
+      this.extraIncome = 0; // Limpiar el campo
+    }
+
+    // Validar gastos del hogar
+    for (const key in this.homeExpenses) {
+      if (this.homeExpenses.hasOwnProperty(key)) {
+        if (!this.isValidNumber(this.homeExpenses[key as keyof typeof this.homeExpenses])) {
+          errors.push(`El gasto de ${key} debe ser un número positivo.`);
+          this.homeExpenses[key as keyof typeof this.homeExpenses] = 0; // Limpiar el campo
+        }
+      }
+    }
+
+    // Validar gastos de transporte
+    for (const key in this.transportExpenses) {
+      if (this.transportExpenses.hasOwnProperty(key)) {
+        if (!this.isValidNumber(this.transportExpenses[key as keyof typeof this.transportExpenses])) {
+          errors.push(`El gasto de transporte en ${key} debe ser un número positivo.`);
+          this.transportExpenses[key as keyof typeof this.transportExpenses] = 0; // Limpiar el campo
+        }
+      }
+    }
+
+    // Validar gastos de educación
+    for (const key in this.educationExpenses) {
+      if (this.educationExpenses.hasOwnProperty(key)) {
+        if (!this.isValidNumber(this.educationExpenses[key as keyof typeof this.educationExpenses])) {
+          errors.push(`El gasto de educación en ${key} debe ser un número positivo.`);
+          this.educationExpenses[key as keyof typeof this.educationExpenses] = 0; // Limpiar el campo
+        }
+      }
+    }
+
+    // Validar otros gastos
+    for (const key in this.otherExpenses) {
+      if (this.otherExpenses.hasOwnProperty(key)) {
+        if (!this.isValidNumber(this.otherExpenses[key as keyof typeof this.otherExpenses])) {
+          errors.push(`El gasto en ${key} debe ser un número positivo.`);
+          this.otherExpenses[key as keyof typeof this.otherExpenses] = 0; // Limpiar el campo
+        }
+      }
+    }
+
+    // Validar ahorros
+    if (!this.isValidNumber(this.savings)) {
+      errors.push('Los ahorros deben ser un número positivo.');
+      this.savings = 0; // Limpiar el campo
+    }
+
+    // Validar inversiones
+    if (!this.isValidNumber(this.investments)) {
+      errors.push('Las inversiones deben ser un número positivo.');
+      this.investments = 0; // Limpiar el campo
+    }
+
+    // Mostrar errores si existen
+    if (errors.length > 0) {
+      alert('Errores de validación:\n' + errors.join('\n'));
+      return false;
+    }
+
+    return true;
+  }
+
   getPresupuestoDisponible(): number {
+    if (!this.validateInputs()) {
+      return 0;
+    }
+
     const totalIncome = this.salary + this.extraIncome;
     this.totalExpenses =
       Object.values(this.homeExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.transportExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.educationExpenses).reduce((sum, value) => sum + value, 0) +
       Object.values(this.otherExpenses).reduce((sum, value) => sum + value, 0);
+
     return totalIncome - this.totalExpenses + this.savings + this.investments;
   }
 
-  // Método para alternar la visibilidad del historial
   toggleHistorial(): void {
     this.listPresupuestosVisible = !this.listPresupuestosVisible;
+    
+    if (this.listPresupuestosVisible) {
+      this.loading = true;  // Activar el spinner antes de cargar los datos
+      this.loadPresupuestos();  // Llamar a la función para cargar los presupuestos
+    }
   }
+  
 
-  // Método para cargar todos los presupuestos
   loadPresupuestos(): void {
+    this.loading = true;  // Activar el spinner antes de cargar los datos
     this.calculatorService.getCalculators().subscribe(
       (data: Calculator[]) => {
         this.presupuestos = data;
+        this.loading = false;  // Desactivar el spinner una vez cargados los datos
       },
       (error) => {
         console.error('Error al cargar presupuestos:', error);
+        this.loading = false;  // Desactivar el spinner en caso de error
       }
     );
   }
 
-  // Método para guardar el presupuesto disponible
   savePresupuesto(): void {
-    if (this.presupuestoDisponible !== null) {
+    if (this.presupuestoDisponible !== null && this.validateInputs()) {
       this.calculatorService.addPresupuestoDisponible(this.presupuestoDisponible)
         .then(() => {
           console.log('Presupuesto disponible guardado');
@@ -100,15 +189,15 @@ export class CalculatorComponent {
         .catch((error: any) => {
           console.error('Error al guardar presupuesto:', error);
         });
+    } else {
+      alert('No se puede guardar el presupuesto. Los datos son inválidos.');
     }
   }
 
-  // Método para seleccionar un presupuesto específico
   onPresupuestoClick(presupuesto: Calculator): void {
     console.log('Presupuesto seleccionado:', presupuesto);
   }
 
-  // Método para borrar todos los presupuestos
   deleteAllPresupuestos(): void {
     this.calculatorService.deleteAllCalculators()
       .then(() => {
@@ -120,15 +209,23 @@ export class CalculatorComponent {
       });
   }
 
-  // Mostrar informe mensual
   showMonthlyReport() {
-    this.showReport = !this.showReport; // Toggle visibility of report
+    this.showReport = !this.showReport;
   }
-  // Método para calcular el presupuesto disponible
+
   calculateResults() {
+    if (!this.validateInputs()) {
+      return;
+    }
+  
+    this.loading = true;  // Activar el spinner
+  
+    // Realizar los cálculos
     const totalIncome = this.salary + this.extraIncome;
     const totalExpenses = Object.values(this.homeExpenses).reduce((acc, curr) => acc + curr, 0);
     this.presupuestoDisponible = totalIncome - totalExpenses;
+  
+    this.loading = false;  // Desactivar el spinner después de los cálculos
   }
-
+  
 }

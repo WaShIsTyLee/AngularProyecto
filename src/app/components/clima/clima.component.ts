@@ -10,9 +10,10 @@ import { ClimaService } from '../../services/clima.service';
   styleUrls: ['./clima.component.css']
 })
 export class ClimaComponent implements OnInit {
-  ciudad: string = 'Cordoba';  // Ciudad por defecto
+  ciudad: string = 'Madrid';  // Ciudad por defecto
   clima: any;
   error: string = '';
+  loading: boolean = false;  // Variable para controlar el spinner
 
   constructor(private climaService: ClimaService) {}
 
@@ -22,6 +23,7 @@ export class ClimaComponent implements OnInit {
 
   // Método para obtener el clima
   obtenerClima(): void {
+    this.loading = true;  // Inicia el spinner
     this.climaService.obtenerClima(this.ciudad)
       .then(data => {
         this.clima = data;
@@ -30,6 +32,9 @@ export class ClimaComponent implements OnInit {
       .catch(err => {
         this.error = 'No se pudo obtener el clima. Intenta nuevamente.';
         console.error(err);
+      })
+      .finally(() => {
+        this.loading = false;  // Detiene el spinner
       });
   }
 }
